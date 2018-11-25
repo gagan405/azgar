@@ -30,4 +30,9 @@ export DYLD_FALLBACK_LIBRARY_PATH=$DYLD_FALLBACK_LIBRARY_PATH:/usr/local/lib
 * Environment variables : `FLASK_APP=azgar;LANG=en_US.UTF-8`
 
 
+## Logging
+
+Log file is set to the directory `/var/log/azgar`. This directory needs to have user permissions to write log files.
+Otherwise, it can also be configured to write to some other location. The config is set in `__init__.py`.
+
 

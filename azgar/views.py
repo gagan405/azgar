@@ -6,6 +6,7 @@ from azgar import app
 @app.route('/hello/', defaults={'name': 'World'})
 @app.route('/hello/<name>/')
 def hello_html(name):
+    app.logger.info('Example log ... ')
     return render_template('hello.html', name=name)
 
 
