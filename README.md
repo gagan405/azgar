@@ -35,4 +35,14 @@ export DYLD_FALLBACK_LIBRARY_PATH=$DYLD_FALLBACK_LIBRARY_PATH:/usr/local/lib
 Log file is set to the directory `/var/log/azgar`. This directory needs to have user permissions to write log files.
 Otherwise, it can also be configured to write to some other location. The config is set in `__init__.py`.
 
+## Database
+
+To run database migration:
+
+~~~
+export FLASK_APP=azgar
+flask db init   # isn't needed if migrations directory and contents are already generated
+flask db migrate
+~~~
+
 
