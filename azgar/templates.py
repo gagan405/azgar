@@ -1,5 +1,5 @@
-from azgar import app
-from flask import request, abort
+from azgar import app, db
+from flask import request, abort, jsonify, Response
 
 from azgar.models import Template
 
@@ -10,10 +10,15 @@ def create_template():
         abort(400)
     app.logger.info('Request received' + str(request.json))
     template = Template.from_json(request.json)
-    return "", 200
+    db.session.add(template)
+    db.session.commit()
+    resp = Response("")
+    resp.headers['Location'] = request.base_url + str(template.id)
+    resp.status_code = 201
+    return resp
 
 
 @app.route('/templates/')
 def get_templates():
     template = str(Template.query.all())
-    return template, 200
+    return jsonify(template), 200
