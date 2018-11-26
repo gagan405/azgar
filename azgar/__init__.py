@@ -24,4 +24,4 @@ logging.getLogger('werkzeug').addHandler(access_log_handler)
 app.logger.setLevel(logging.INFO)
 app.logger.addHandler(handler)
 
-from azgar import views, models
+from azgar import views, models, templates

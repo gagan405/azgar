@@ -2,6 +2,7 @@ from azgar import db
 
 # More details on sql-alchemy
 # https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iv-database
+from azgar.exceptions import JsonParseException
 
 
 class Template(db.Model):
@@ -12,3 +13,10 @@ class Template(db.Model):
 
     def __repr__(self):
         return '<Template {}>'.format(self.template_name)
+
+    @staticmethod
+    def from_json(json):
+        try:
+            return Template(**json)
+        except KeyError:
+            raise JsonParseException("Failed to parse template from given request")
