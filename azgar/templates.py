@@ -18,6 +18,12 @@ def create_template():
     return resp
 
 
+@app.route('/templates/<id>', methods=['GET'])
+def get_template(id):
+    template = Template.query.get(id)
+    return jsonify(template), 200
+
+
 @app.route('/templates/')
 def get_templates():
     template = str(Template.query.all())
