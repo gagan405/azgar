@@ -26,7 +26,7 @@ requests==2.20.1
 six==1.11.0
 SQLAlchemy==1.2.14
 tinycss2==0.6.1
-urllib3==1.24.1
+urllib3==1.24.2
 WeasyPrint==43
 webencodings==0.5.1
 Werkzeug==0.15.3
